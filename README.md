@@ -6,6 +6,11 @@ yarn and pnpm do this.  npm has a bug and does not.
 As a workaround, you can add this as a dependency and then declare in package.json:
 
 ```json
+  "devDependencies": {
+        "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#main"
+        // or lock to a single commit hash. Do not use the hash shown here; use the latest commit on `main`
+        "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#c7b7dd5e00f90d548110a6cd837120778439dafa"
+  }
   "scripts": {
     "prepack": "your prepack script here",
     "prepare": "workaround-broken-npm-prepack-behavior prepack"
@@ -17,13 +22,5 @@ other reason, such as cloning your project and running `npm install`.
 
 ### How it works
 
-We detect when env var npm_config_local_prefix is a subdirectory of npm_config_cache, because that'll detect the only time in git dep installation where I should run compilation.
-
-when npm installs a git dep:
-- first invocation of prepare: where npm has cloned the git repo into npm's cache and installed devDependencies <-- detect this, run compilation
-- second invocation of prepare: where npm is installing the package from cache ^^ into user's node_modules <-- do not compile
-
-when running npm ci or npm install at project root, not a git dep:
-- single invocation of prepare <-- do not compile
-
-Probably some corner cases here, but I think for me this'll be good enough
+npm sets a variety of env vars with the paths to package.json, the local package, etc.  When one of those paths is within
+the npm cache directory, we assume it's a git dependency being prepared.
