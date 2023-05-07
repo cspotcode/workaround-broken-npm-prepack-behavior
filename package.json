@@ -1,4 +1,6 @@
 {
+    "name": "example-git-dep",
+    "version": "1.0.0",
     "devDependencies": {
         "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#main"
     },
