@@ -2,6 +2,7 @@
 import {spawnSync} from 'child_process';
 import {normalize, relative} from 'path';
 
+console.dir(process.env);
 const scriptName = process.argv[2];
 const {
     npm_config_local_prefix,
