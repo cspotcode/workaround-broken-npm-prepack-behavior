@@ -2,11 +2,6 @@
 import {spawnSync} from 'child_process';
 import {isAbsolute, normalize, relative} from 'path';
 
-const relevant = {};
-for(const key of Object.keys(process.env)) {
-    if(key.startsWith('npm')) relevant[key] = process.env[key];
-}
-console.dir(relevant);
 const scriptName = process.argv[2];
 const {
     npm_config_local_prefix,
