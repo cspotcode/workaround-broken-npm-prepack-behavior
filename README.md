@@ -9,7 +9,7 @@ As a workaround, you can add this as a dependency and then declare in package.js
   "devDependencies": {
         "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#main"
         // or lock to a single commit hash. Do not use the hash shown here; use the latest commit on `main`
-        "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#c7b7dd5e00f90d548110a6cd837120778439dafa"
+        "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#59e32763ce19d087062b6ce287a21ee00d9a7187"
   }
   "scripts": {
     "prepack": "your prepack script here",
