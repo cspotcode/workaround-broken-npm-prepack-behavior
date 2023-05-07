@@ -1,5 +1,7 @@
+#!/usr/bin/env node
 import {spawnSync} from 'child_process';
 import {normalize, relative} from 'path';
+
 const scriptName = process.argv[2];
 const {
     npm_config_local_prefix,
