@@ -3,9 +3,9 @@ the source code into an npm module.  git clone -> prepack to build it -> pack in
 
 yarn and pnpm do this.  npm has a bug and does not.
 
-As a workaround, you can add this as a dependency and then declare in package.json:
+As a workaround, you can add this as a dependency and call it in your prepare script. Add to your package.json:
 
-```json
+```jsonc
   "devDependencies": {
         "workaround-broken-npm-prepack-behavior": "https://github.com/cspotcode/workaround-broken-npm-prepack-behavior#main"
         // or lock to a single commit hash. Do not use the hash shown here; use the latest commit on `main`
